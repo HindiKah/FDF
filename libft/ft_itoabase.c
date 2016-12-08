@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 19:57:34 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/08 17:25:20 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/08 20:02:22 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char		*ft_itoabase(unsigned int c, size_t base)
 {
 	int		i;
 	char	*ret;
-		ft_putstr("ICI\n");
 	
 	if (base > 16)
 		return (NULL);

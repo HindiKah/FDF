@@ -6,12 +6,14 @@
 /*   By: ybenoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 20:33:07 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/08 17:19:29 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/08 18:36:18 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define BUFF_SIZE 32
 
 # include <stdio.h>
 # include <unistd.h>
@@ -27,7 +29,19 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+typedef	struct		s_gnl
+{
+			int		fd;
+			char	*buff;
+}					t_gnl;
 
+size_t				ft_strlen_c(char *str, char c);
+char				*ft_strdup_c(char *str, char c);
+char				*ft_strndup(const char *str, size_t n);
+char				*ft_strjoin_free(char const *s1, char const *s2);
+t_gnl				*gnl_findorcreate_file(const int fd, t_list **my_list);
+ssize_t				gnl_readoneline(t_gnl *file);
+int					get_next_line(const int fd, char **linei);
 void				ft_putlong(long nb);
 void				ft_putchar(unsigned char c);
 void				ft_bzero(void *s, size_t n);
