@@ -6,14 +6,15 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:48:32 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/08 20:00:41 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/08 22:16:42 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "libft.h"
-#include "mlx.h"
+# include "../libft/includes/libft.h"
+# include <mlx.h>
+# include <math.h>
 
 #endif

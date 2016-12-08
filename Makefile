@@ -6,13 +6,13 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/08 20:00:14 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/08 22:42:14 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=gcc
 NAME=fdf
-FLAGS=-Wall -Wextra -Werror
+FLAGS=-Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit
 
 LIB_PATH=libft
 LIB=$(LIB_PATH)/libft.a
@@ -43,19 +43,19 @@ OK=$(C_OK)OK$(C_NO)
 
 all: obj $(NAME)
 
-$(NAME): $(LIB) $(OBJS)
-	@$(CC) $(FLAGS) -o $@ $^ $(LIB_LINK)
+$(NAME): $(LIB)
+	$(CC) $(FLAGS) -o $(NAME) $(SRCS) $(LIB_LINK)
 	@echo "Compiling" [ $(NAME) ] $(SUCCESS)
 
 $(LIB):
 	@make -C $(LIB_PATH)
 
-obj:
-	@mkdir -p obj
+#obj:
+#	@mkdir -p obj
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/*.h
-	@$(CC) $(FLAGS) $(INCS) -c -o $@ $<
-	@echo "Linking" [ $< ] $(OK)
+#$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/*.h
+#	$(CC) $(INCS) -c $(SRCS)
+#	@echo "Linking" [ $< ] $(OK)
 
 clean:
 	@rm -f $(OBJS)
