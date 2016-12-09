@@ -6,7 +6,7 @@
 /*   By: ybenoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 20:33:07 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/08 18:36:18 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/09 01:57:08 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char				*ft_strndup(const char *str, size_t n);
 char				*ft_strjoin_free(char const *s1, char const *s2);
 t_gnl				*gnl_findorcreate_file(const int fd, t_list **my_list);
 ssize_t				gnl_readoneline(t_gnl *file);
-int					get_next_line(const int fd, char **linei);
+int					get_next_line(const int fd, char **line);
 void				ft_putlong(long nb);
 void				ft_putchar(unsigned char c);
 void				ft_bzero(void *s, size_t n);

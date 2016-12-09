@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:52:18 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/08 20:19:33 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/08 23:37:37 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,6 +108,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c $(INCLUDES)/libft.h
 	@$(CC) -c -o $@ $< -I $(INCLUDES)
+	@echo "Linking" [ $< ] $(OK)
 
 clean:
 	rm -f $(OBJS)

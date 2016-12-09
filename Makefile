@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/08 22:42:14 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/09 01:42:43 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ INCS=-I $(LIB_PATH)/$(INC_DIR) -I $(INC_DIR)
 
 SRC_DIR=srcs
 SRC_BASE=main.c\
+		 map_init.c\
 
 OBJ_DIR=obj
 
@@ -41,7 +42,7 @@ C_WARN="\033[33m"
 SUCCESS=$(C_GOOD)SUCCESS$(C_NO)
 OK=$(C_OK)OK$(C_NO)
 
-all: obj $(NAME)
+all: $(NAME)
 
 $(NAME): $(LIB)
 	$(CC) $(FLAGS) -o $(NAME) $(SRCS) $(LIB_LINK)
@@ -49,13 +50,6 @@ $(NAME): $(LIB)
 
 $(LIB):
 	@make -C $(LIB_PATH)
-
-#obj:
-#	@mkdir -p obj
-
-#$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/*.h
-#	$(CC) $(INCS) -c $(SRCS)
-#	@echo "Linking" [ $< ] $(OK)
 
 clean:
 	@rm -f $(OBJS)
