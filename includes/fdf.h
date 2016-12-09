@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:48:32 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/09 17:39:57 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/09 22:07:13 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct	s_mlx
 
 typedef struct	s_fdf
 {
-				int **fourtytwo;
+				int **tab;
 				int type;
 }				t_fdf;
 
@@ -36,6 +36,6 @@ t_fdf			*fdf_init(int fd, t_fdf *my_fdf, int type);
 int				**ft_init_tab(int **tab, int fd);
 size_t			count_line(int fd);
 size_t			ft_sstrlen(char **sstr);
-void			print_itab(int **tab);
+void			print_itab(int **tab, int y);
 
 #endif

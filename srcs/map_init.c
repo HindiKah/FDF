@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/09 17:47:57 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/09 22:11:12 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_mlx		*map_init(t_mlx *my_map, int x, int y)
 t_fdf		*fdf_init(int fd, t_fdf *my_fdf, int type)
 {
 	my_fdf = (t_fdf*)malloc(sizeof(t_fdf));
-	my_fdf->fourtytwo = ft_init_tab(my_fdf->fourtytwo, fd);
+	my_fdf->tab = ft_init_tab(my_fdf->tab, fd);
 	my_fdf->type = type;
 	return (my_fdf);
 }
@@ -46,32 +46,28 @@ size_t		count_line(int fd)
 }
 int			**ft_init_tab(int **tab,int fd)
 {
-	char	**line;
+	char	*line;
 	char	**tmp_split;
 	int		i;
 	int		j;
+	int		y;
 
-			ft_putstr("ERROR1");
-	line = NULL;
-	tab = (int**)malloc(sizeof(int*) * (count_line(fd) + 1));
+	y = count_line(fd);
 	i = 0;
-	ft_putnbr(get_next_line(fd, line));
-	while ((get_next_line(fd, line) > 0))
+	tab = (int**)malloc(sizeof(int*) * (y + 1));
+	close(fd);
+	fd = open("42.txt", O_RDONLY);
+	while ((get_next_line(fd, &line)) > 0)
 	{
-			ft_putstr("ERROR1");
 		j = 0;
-		tmp_split = ft_strsplit(*line, ' ');
+		tmp_split = ft_strsplit(line, ' ');
 		tab[i] = (int*)malloc(sizeof(int) * (ft_sstrlen(tmp_split) + 1));
 		while (tmp_split[j])
 		{
-			ft_putstr(tmp_split[j]);
-			ft_putstr(" ");
 			tab[i][j] = ft_atoi(tmp_split[j]);
 			j++;
 		}
-		tab[i][j] = '\0';
-			ft_putstr("\n");
-		i++;
+			tab[i++][j] = -1;
 	}
 	return (tab);
 }
@@ -81,7 +77,7 @@ size_t		ft_sstrlen(char **sstr)
 	int i;
 
 	i = 0;
-	while (sstr[i])
+	while (sstr[i] != NULL)
 		i++;
 	return (i);
 }

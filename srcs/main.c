@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 22:42:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/09 17:45:54 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/09 22:11:46 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,22 @@ int		main()
 {
 	int		fd;
 	t_fdf	*my_fdf;
+	int i = 0;
+	char **test;
 
+	test = (char**)malloc(sizeof(char*) * 11);
+	while (i < 10)
+	{
+		test[i] = (char*)malloc(sizeof(char) * 2);
+		test[i][0] = '1';
+		test[i++][1] = '\0';
+	}
+	test[i] = NULL;
+		
 	my_fdf = NULL;
 	fd = open("42.txt", O_RDONLY);
-	if (fd <= 0)
-	{
-		ft_putstr("RD ERROR");
-		exit(0);
-	}
 	my_fdf = fdf_init(fd, my_fdf, 0);
-
+	print_itab(my_fdf->tab, 11);
 	close(fd);
 	free(my_fdf);
 	return (0);
