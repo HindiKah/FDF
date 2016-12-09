@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/09 01:51:42 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/09 17:47:57 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,26 @@ int			**ft_init_tab(int **tab,int fd)
 	int		i;
 	int		j;
 
+			ft_putstr("ERROR1");
 	line = NULL;
 	tab = (int**)malloc(sizeof(int*) * (count_line(fd) + 1));
 	i = 0;
+	ft_putnbr(get_next_line(fd, line));
 	while ((get_next_line(fd, line) > 0))
 	{
+			ft_putstr("ERROR1");
 		j = 0;
 		tmp_split = ft_strsplit(*line, ' ');
 		tab[i] = (int*)malloc(sizeof(int) * (ft_sstrlen(tmp_split) + 1));
 		while (tmp_split[j])
 		{
+			ft_putstr(tmp_split[j]);
+			ft_putstr(" ");
 			tab[i][j] = ft_atoi(tmp_split[j]);
 			j++;
 		}
 		tab[i][j] = '\0';
+			ft_putstr("\n");
 		i++;
 	}
 	return (tab);

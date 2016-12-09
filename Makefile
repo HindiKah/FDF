@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/09 01:42:43 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/09 17:38:02 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ INCS=-I $(LIB_PATH)/$(INC_DIR) -I $(INC_DIR)
 SRC_DIR=srcs
 SRC_BASE=main.c\
 		 map_init.c\
+		 printer.c
 
 OBJ_DIR=obj
 

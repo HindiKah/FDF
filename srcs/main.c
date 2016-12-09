@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 22:42:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/09 01:58:28 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/09 17:45:54 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,19 @@ int		my_key_fun(int keycode, void *param)
 
 int		main()
 {
-	//int		fd;
-	//t_fdf	*my_fdf;
-	char  tarace[2][9];
+	int		fd;
+	t_fdf	*my_fdf;
 
-	ft_putnbr(ft_sstrlen(tarace));
-	//my_fdf = NULL;
-	//fd = open("42.txt", O_RDONLY);
-	//my_fdf = fdf_init(fd, my_fdf, 0);
+	my_fdf = NULL;
+	fd = open("42.txt", O_RDONLY);
+	if (fd <= 0)
+	{
+		ft_putstr("RD ERROR");
+		exit(0);
+	}
+	my_fdf = fdf_init(fd, my_fdf, 0);
+
+	close(fd);
+	free(my_fdf);
 	return (0);
 }

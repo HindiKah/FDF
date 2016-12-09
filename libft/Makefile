@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:52:18 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/08 23:37:37 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/09 17:11:06 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,12 @@ SRCS= 		ft_atoi.c\
 			ft_tolower.c\
 			ft_toupper.c\
 			ft_word_count.c\
-			get_next_line.c
+			get_next_line.c\
+			ft_strlen_c.c\
+			ft_strdup_c.c\
+			ft_strndup.c\
+			ft_strjoin_free.c
+
 OBJS=$(SRCS:.c=.o)
 
 C_NO="\033[00m"
