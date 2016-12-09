@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/09 17:38:02 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/09 22:53:15 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ INCS=-I $(LIB_PATH)/$(INC_DIR) -I $(INC_DIR)
 SRC_DIR=srcs
 SRC_BASE=main.c\
 		 map_init.c\
-		 printer.c
+		 printer.c\
+		 draw.c
 
 OBJ_DIR=obj
 
@@ -62,6 +63,14 @@ fclean: clean
 	@make -C $(LIB_PATH) fclean
 	@echo "Delete" [ $(NAME) ] $(OK)
 
+mclean: clean
+	@rm -f $(NAME)
+	@echo "Delete" [ $(NAME) ] $(OK)
+
+remain: mclean 
+	$(CC) $(FLAGS) -o $(NAME) $(SRCS) $(LIB_LINK)
+
 re: fclean all
+
 
 .PHONY: clean all re fclean

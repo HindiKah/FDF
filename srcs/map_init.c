@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/09 22:11:12 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/09 23:47:40 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_fdf		*fdf_init(int fd, t_fdf *my_fdf, int type)
 {
 	my_fdf = (t_fdf*)malloc(sizeof(t_fdf));
 	my_fdf->tab = ft_init_tab(my_fdf->tab, fd);
+	my_fdf->width = 19;
+	my_fdf->height = 11;
 	my_fdf->type = type;
 	return (my_fdf);
 }
