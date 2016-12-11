@@ -6,61 +6,73 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 22:51:59 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/10 00:54:57 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/11 01:03:30 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void		draw_line(t_mlx *my_draw, int i1, int j1, int i2, int j2)
+void		draw_line(t_mlx *my_draw, int x1, int y1, int x2, int y2)
 {
-	int i;
+	int x;
+	int y;
 
-	i = i1;
-	while (i <= i2)
+	x = x1;
+	while (x <= x2)
 	{
-		//if (i - i1 < 0)
-		//{
-		//	draw_vertical(my_draw, i1, i2, j1);
-		//	return ;
-		//}
-		//else
-			mlx_pixel_put(my_draw->mlx, my_draw->win, i, j1 + ((j2 - j1) * (i - i1)) / (i2 - i1), 0x0000FF00);
-		i++;
+		mlx_pixel_put(my_draw->mlx, my_draw->win,
+				x, (y1 + ((y2 - y1) * (x - x1)) / (x2 - x1)), 0x0000FF00);
+		x++;
+	}
+	y = y1;
+	while (y <= y2)
+	{
+		mlx_pixel_put(my_draw->mlx, my_draw->win,
+				(x1 + ((x2 - x1) * (y - y1)) / (y2 - y1)), y,  0x0000FF00);
+		y++;
 	}
 }
 
-void		draw_tab(t_mlx *my_draw, t_fdf *my_fdf)
-{
-	int i;
-	int j;
-	int i1;
-	int j1;
+/*void		draw_tab(t_fdx *my_fdx)
+  {
+  }*/
 
-	j = 0;
-	i = 0;
-	i1 = i;
-	j1 = j;
-	while (i < my_fdf->height)
+void		draw_v(t_fdx *my_fdx)
+{
+	int x;
+	int y;
+	int i;
+	int y_tmp;
+	int z;
+
+
+	z = my_fdx->my_fdf->z;
+	x = 0;
+	y = 0;
+	y_tmp = my_fdx->y_begin;
+	while (x < my_fdx->my_fdf->width)
 	{
-		j = 0;
-		while (j < my_fdf->width)
-		{
-			draw_line(my_draw, (i + 1) * (i + 10), (j + 1) * (j + 10), i1 + (10 * my_fdf->tab[i][j]), j1 + (10 * my_fdf->tab[i][j]));
-			j++;
-		}
-		i++;
+		i = y;
+		while (i + 1 < my_fdx->my_fdf->height && my_fdx->my_fdf->tab[i][x] == 0) 
+			i++;
+		if (i != y)
+			draw_line(my_fdx->my_draw, (x * 50),
+					(y * 50),
+					 ((x + 1)  * 50),
+					((i) * 50));
+		x++;
 	}
 }
 
-void		draw_vertical(t_mlx *my_draw, int i1, int i2, int j1)
-{
-	int i;
 
-	i = i1;
-	while (i <= i2)
-	{
-		mlx_pixel_put(my_draw->mlx, my_draw->win, i, j1, 0x0000FF00);
-		i++;
-	}
-}
+/*void		draw_h(t_mlx *my_draw)
+  {
+  int x;
+
+  x = x1;
+  while (x <= x2)
+  {
+  mlx_pixel_put(my_draw->mlx, my_draw->win, x, y1, 0x0000FF00);
+  x++;
+  }
+  }*/

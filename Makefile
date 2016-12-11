@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/09 22:53:15 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/11 00:39:31 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ OBJS=$(addprefix $(OBJ_DIR)/, $(SRC_BASE:.c=.o))
 
 #COLORS
 C_NO="\033[00m"
-C_OK="\033[35m"
+C_OK="\033[32m"
 C_GOOD="\033[32m"
 C_ERROR="\033[31m"
 C_WARN="\033[33m"

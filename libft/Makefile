@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:52:18 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/09 17:11:06 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/11 00:39:08 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,10 +96,10 @@ SRCS= 		ft_atoi.c\
 OBJS=$(SRCS:.c=.o)
 
 C_NO="\033[00m"
-C_OK="\033[35m"
+C_OK="\033[32m"
 C_GOOD="\033[32m"
 C_ERROR="\033[31m"
-C_WARN="\033[33m"
+C_WARN="\033[31m"
 
 SUCCESS=$(C_GOOD)SUCCESS$(C_NO)
 OK=$(C_OK)OK$(C_NO)
