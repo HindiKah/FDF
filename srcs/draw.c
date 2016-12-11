@@ -6,73 +6,67 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 22:51:59 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/11 01:03:30 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/11 22:00:20 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void		draw_line(t_mlx *my_draw, int x1, int y1, int x2, int y2)
+void		draw(t_mlx *my_draw, t_coord *s, t_coord *e)
 {
 	int x;
-	int y;
 
-	x = x1;
-	while (x <= x2)
+	if (s->x < e->x && s->y <= e->y)
 	{
-		mlx_pixel_put(my_draw->mlx, my_draw->win,
-				x, (y1 + ((y2 - y1) * (x - x1)) / (x2 - x1)), 0x0000FF00);
-		x++;
+		printf("X: s->x = %d; s->y = %d; e->x = %d; e->y = %d\n\n", s->x, s->y, e->x, e->y);
+		x = s->x;
+		while (x != e->x)
+		{
+		printf(" %d ", x);
+			if (s->x != e->x)
+				mlx_pixel_put(my_draw->mlx, my_draw->win,
+						x, (s->y + ((e->y - s->y) * (x - s->x)) / (e->x - s->x)), 0x0000FF00);
+		(s->x > e->x) ? x-- : x++;
+		}
+		return ;
 	}
-	y = y1;
-	while (y <= y2)
+	x = s->y;
+	printf("Y: s->x = %d; s->y = %d; e->x = %d; e->y = %d\n\n", s->x, s->y, e->x, e->y);
+	while (x != e->y)
 	{
-		mlx_pixel_put(my_draw->mlx, my_draw->win,
-				(x1 + ((x2 - x1) * (y - y1)) / (y2 - y1)), y,  0x0000FF00);
-		y++;
+		printf(" %d ", x);
+		if (s->y != e->y)
+			mlx_pixel_put(my_draw->mlx, my_draw->win,
+					x, (s->x + ((e->x - s->x) * (x - s->y)) / (e->y - s->y)), 0x0000FF00);
+		(s->y > e->y) ? x-- : x++;
 	}
-}
-
-/*void		draw_tab(t_fdx *my_fdx)
-  {
-  }*/
-
-void		draw_v(t_fdx *my_fdx)
-{
-	int x;
-	int y;
-	int i;
-	int y_tmp;
-	int z;
-
-
-	z = my_fdx->my_fdf->z;
-	x = 0;
-	y = 0;
-	y_tmp = my_fdx->y_begin;
-	while (x < my_fdx->my_fdf->width)
-	{
-		i = y;
-		while (i + 1 < my_fdx->my_fdf->height && my_fdx->my_fdf->tab[i][x] == 0) 
-			i++;
-		if (i != y)
-			draw_line(my_fdx->my_draw, (x * 50),
-					(y * 50),
-					 ((x + 1)  * 50),
-					((i) * 50));
-		x++;
-	}
+	return ;
 }
 
 
-/*void		draw_h(t_mlx *my_draw)
-  {
-  int x;
+void		draw_line(t_mlx *my_draw, t_coord *s, t_coord *e)
+{
+	t_coord *tmp;
 
-  x = x1;
-  while (x <= x2)
-  {
-  mlx_pixel_put(my_draw->mlx, my_draw->win, x, y1, 0x0000FF00);
-  x++;
-  }
-  }*/
+	printf("1: s->x = %d; s->y = %d; e->x = %d; e->y = %d\n\n", s->x, s->y, e->x, e->y);
+	if ((s->x > e->x && s->y > e->y) || (s->x > e->x && s->y < e->y))
+	{
+		tmp = s;
+		s = e;
+		e = tmp;
+	}
+	else if (s->x > e->x && s->y < e->y)
+	{
+		tmp = s;
+		s = e;
+		e = tmp;
+	}
+	printf("2: s->x = %d; s->y = %d; e->x = %d; e->y = %d\n\n", s->x, s->y, e->x, e->y);
+	if (s->x == e->x && s->y > e-> y)
+		swap_y(s, e);
+	if (s->y == e->y && s->x > e-> x)
+		swap_x(s, e);
+	printf("2_2: s->x = %d; s->y = %d; e->x = %d; e->y = %d\n\n", s->x, s->y, e->x, e->y);
+	return (draw(my_draw, s, e));
+}
+

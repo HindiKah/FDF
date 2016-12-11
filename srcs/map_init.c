@@ -5,8 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/11 19:01:01 by ybenoit           #+#    #+#             */
+/*   Updated: 2016/12/11 21:19:04 by ybenoit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_init.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/11 19:01:01 by ybenoit           #+#    #+#             */
+/*   Updated: 2016/12/11 19:01:01 by ybenoit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_init.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/10 23:59:52 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/11 19:00:04 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +46,12 @@ t_mlx		*map_init(t_mlx *my_map, int x, int y)
 	return (my_map);
 }
 
-t_fdf		*fdf_init(int fd, t_fdf *my_fdf, int type, float z_p)
+t_fdf		*fdf_init(int fd, t_fdf *my_fdf)
 {
 	my_fdf = (t_fdf*)malloc(sizeof(t_fdf));
 	my_fdf->tab = ft_init_tab(my_fdf->tab, fd);
-	my_fdf->width = 19;
-	my_fdf->height = 11;
-	my_fdf->type = type;
-	my_fdf->z = z_p;
+	my_fdf->w = 19;
+	my_fdf->h = 11;
 	return (my_fdf);
 }
 
@@ -76,19 +98,13 @@ int			**ft_init_tab(int **tab,int fd)
 	return (tab);
 }
 	
-t_fdx		*init_fdx(int fd, int type, int x, int y)
+t_fdx		*init_fdx(int fd,int x, int y)
 {
 		t_fdx	*my_fdx;
 
 		my_fdx = (t_fdx*)malloc(sizeof(t_fdx));
-		my_fdx->my_fdf = fdf_init(fd, my_fdx->my_fdf, type, 25);
+		my_fdx->my_fdf = fdf_init(fd, my_fdx->my_fdf);
 		my_fdx->my_draw = map_init(my_fdx->my_draw, x, y);
-		my_fdx->h_ratio = (my_fdx->my_draw->height / 3) 
-			/ (my_fdx->my_fdf->height);
-		my_fdx->w_ratio = (my_fdx->my_draw->width / 3) 
-			/ (my_fdx->my_fdf->width);
-		my_fdx->x_begin = (int)((float)my_fdx->my_draw->width / 4);
-		my_fdx->y_begin = (int)((float)my_fdx->my_draw->height/ 1.5);
 		return (my_fdx);
 }
 
