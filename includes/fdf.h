@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:48:32 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/11 21:33:14 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/13 19:33:08 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define WIN_X 1920
 # define WIN_Y 1080
-# define ZOOM 50
+# define ZOOM 30
 
 typedef struct	s_mlx
 {
@@ -34,6 +34,7 @@ typedef struct	s_fdf
 				int **tab;
 				int h;
 				int w;
+				int zoom;
 }				t_fdf;
 
 typedef struct	s_fdx
@@ -48,6 +49,7 @@ typedef struct s_coord
 {
 				int x;
 				int y;
+				int color;
 }				t_coord;
 
 t_mlx			*map_init(t_mlx *my_map, int x, int y);
@@ -57,8 +59,11 @@ size_t			count_line(int fd);
 size_t			ft_sstrlen(char **sstr);
 void			draw(t_mlx *my_draw, t_coord *s, t_coord *e);
 void			draw_line(t_mlx *my_draw, t_coord *s, t_coord *e);
+void			draw_h(t_fdx *my_fdx);
+void			draw_v(t_fdx *my_fdx);
 t_fdx			*init_fdx(int fd, int x, int y);
-t_coord			*i_coord(int x, int y);
+t_coord			*i_coord(int x, int y, int z, t_fdx *my_fdx);
 void			swap_x(t_coord *s, t_coord *e);
 void			swap_y(t_coord *s, t_coord *e);
+int				testdraw_xy(t_coord *s, t_coord *e);
 #endif

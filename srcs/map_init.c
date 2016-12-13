@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 19:01:01 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/11 21:19:04 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/13 19:31:40 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_fdf		*fdf_init(int fd, t_fdf *my_fdf)
 	my_fdf->tab = ft_init_tab(my_fdf->tab, fd);
 	my_fdf->w = 19;
 	my_fdf->h = 11;
+	my_fdf->zoom = ZOOM;
 	return (my_fdf);
 }
 

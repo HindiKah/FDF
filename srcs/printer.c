@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 17:34:17 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/11 21:33:30 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/13 19:34:54 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ size_t	ft_sstrlen(char **sstr)
 	return (i);
 }
 
-t_coord		*i_coord(int x, int y)
+t_coord		*i_coord(int x, int y, int z, t_fdx *my_fdx)
 {
 	t_coord *my_p;
 
 	my_p = (t_coord*)malloc(sizeof(my_p));
-	my_p->x = (x) + (WIN_X / 2.5);
-	my_p->y = (y) + (WIN_Y / 2.5);
+	my_p->x = (x * 0.5 - 0.5 * y) * my_fdx->my_fdf->zoom;
+	my_p->y = (z + ((0.5 / 2) * x) + (0.5 / 2) * y) * my_fdx->my_fdf->zoom;
 	return (my_p);
 }
 
@@ -48,4 +48,16 @@ void		swap_y(t_coord *s, t_coord *e)
 	tmp = s->y;
 	s->y = e->y;
 	e->y = tmp;
+}
+
+int		testdraw_xy(t_coord *s, t_coord *e)
+{
+	int x_v;
+	int y_v;
+
+	x_v = (e->x > s->x) ? e->x - s->x : s->x - e->x;
+	y_v = (e->y > s->y) ? e->y - s->y : s->y - e->y;
+	if (x_v > y_v)
+		return (1);
+	return (0);
 }
