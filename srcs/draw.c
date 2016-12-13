@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 22:51:59 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/13 19:36:24 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/13 23:18:20 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		draw(t_mlx *my_draw, t_coord *s, t_coord *e)
 			if (s->x != e->x)
 				mlx_pixel_put(my_draw->mlx, my_draw->win,
 						x + WIN_X / 3, WIN_Y / 1.5 + (s->y + ((e->y - s->y) 
-								* (x - s->x)) / (e->x - s->x)), 0x00FFFF00);
+								* (x - s->x)) / (e->x - s->x)), e->colour);
 			(s->x > e->x) ? x-- : x++;
 		}
 		return ;
@@ -35,7 +35,7 @@ void		draw(t_mlx *my_draw, t_coord *s, t_coord *e)
 		if (s->y != e->y)
 			mlx_pixel_put(my_draw->mlx, my_draw->win,
 					WIN_X / 3 + (s->x + ((e->x - s->x) * (x - s->y)) 
-						/ (e->y - s->y)), x + WIN_Y / 1.5, 0x00FFFF00);
+						/ (e->y - s->y)), x + WIN_Y / 1.5, e->colour);
 		(s->y > e->y) ? x-- : x++;
 	}
 }

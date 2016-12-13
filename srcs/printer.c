@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 17:34:17 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/13 19:34:54 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/13 23:20:54 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ t_coord		*i_coord(int x, int y, int z, t_fdx *my_fdx)
 	t_coord *my_p;
 
 	my_p = (t_coord*)malloc(sizeof(my_p));
-	my_p->x = (x * 0.5 - 0.5 * y) * my_fdx->my_fdf->zoom;
-	my_p->y = (z + ((0.5 / 2) * x) + (0.5 / 2) * y) * my_fdx->my_fdf->zoom;
+	my_p->x = (x * 0.8 - 0.8 * y) * my_fdx->my_fdf->zoom;
+	my_p->y = (z/6 + ((0.8 / 2) * x) + (0.8 / 2) * y) * my_fdx->my_fdf->zoom;
+	my_p->colour = colours(z, my_fdx);
 	return (my_p);
 }
 

@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/11 00:39:31 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/13 23:20:29 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC_DIR=srcs
 SRC_BASE=main.c\
 		 map_init.c\
 		 printer.c\
-		 draw.c
+		 draw.c\
+		 colours.c
 
 OBJ_DIR=obj
 

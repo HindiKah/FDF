@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:48:32 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/13 19:33:08 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/13 23:19:20 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_coord
 {
 				int x;
 				int y;
-				int color;
+				int colour;
 }				t_coord;
 
 t_mlx			*map_init(t_mlx *my_map, int x, int y);
@@ -66,4 +66,6 @@ t_coord			*i_coord(int x, int y, int z, t_fdx *my_fdx);
 void			swap_x(t_coord *s, t_coord *e);
 void			swap_y(t_coord *s, t_coord *e);
 int				testdraw_xy(t_coord *s, t_coord *e);
+int				tab_max(t_fdx *my_fdx);
+int				colours(int z, t_fdx *my_fdx);
 #endif
