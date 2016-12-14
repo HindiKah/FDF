@@ -6,17 +6,17 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 22:42:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/14 10:23:35 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/14 11:01:28 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		my_key_fun(int keycode, void *param)
+int		my_key_fun(int keycode, t_fdx *my_fdx)
 {
 	if (keycode == 53)
 		exit(0);
-	if (param == 0)
+	if (my_fdx != NULL)
 		return (printf("key event %d\n", keycode));
 	return (printf("key event %d\n", keycode));
 }
