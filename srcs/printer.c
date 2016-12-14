@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 17:34:17 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/13 23:20:54 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/14 10:28:40 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ size_t	ft_sstrlen(char **sstr)
 	return (i);
 }
 
-t_coord		*i_coord(int x, int y, int z, t_fdx *my_fdx)
+t_coord		*i_coord(int x, int y, t_fdx *my_fdx)
 {
 	t_coord *my_p;
 
 	my_p = (t_coord*)malloc(sizeof(my_p));
-	my_p->x = (x * 0.8 - 0.8 * y) * my_fdx->my_fdf->zoom;
-	my_p->y = (z/6 + ((0.8 / 2) * x) + (0.8 / 2) * y) * my_fdx->my_fdf->zoom;
-	my_p->colour = colours(z, my_fdx);
+	my_p->x = (x * my_fdx->cte1 - my_fdx->cte2 * y) * my_fdx->my_fdf->zoom;
+	my_p->y = (-my_fdx->my_fdf->tab[y][x]/my_fdx->cte3 + ((my_fdx->cte1 / 2) * x) + (my_fdx->cte2 / 2) * y) * my_fdx->my_fdf->zoom;
 	return (my_p);
 }
 
