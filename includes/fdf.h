@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:48:32 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 17:53:46 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/15 19:07:04 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct	s_fdx
 				int		colour_h;
 				int		colour_l;
 				int		colour_p;
+				int		m_x;
+				int		m_y;
 }				t_fdx;
 
 typedef struct s_coord
@@ -96,5 +98,7 @@ void			colour_rgb(int keycode, t_fdx *my_fdx);
 void			clean_map(t_fdx *my_fdx);
 void			cte1(t_fdx *my_fdx, int keycode);
 void			cte2(t_fdx *my_fdx, int keycode);
+void			cte3(t_fdx *my_fdx, int keycode);
 void			zoom(t_fdx *my_fdx, int keycode);
+void			move(t_fdx *my_fdx, int keycode);
 #endif

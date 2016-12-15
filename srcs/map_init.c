@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 17:54:10 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/15 18:02:16 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ t_fdx		*init_fdx(int fd,int x, int y)
 		my_fdx->colour_l = WHITE;
 		my_fdx->colour_h = WHITE;
 		my_fdx->colour_p = WHITE;
+		my_fdx->m_x = 0;
+		my_fdx->m_y = 0;
 		return (my_fdx);
 }
 

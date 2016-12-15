@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 22:51:59 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 17:52:50 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/15 19:01:34 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		draw_h(t_fdx *my_fdx)
 {
 	int x;
 	int y;
-
+	
 	y = 0;
 	while (y < my_fdx->my_fdf->h)
 	{

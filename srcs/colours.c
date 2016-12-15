@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:52:20 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 17:36:51 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/15 19:39:13 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void			clean_map(t_fdx *my_fdx)
 	i = 0;
 	while (i <= my_fdx->my_draw->height)
 	{
-		ft_putstr("JE PASSE\n");
 		j = 0;
 		while (j <= my_fdx->my_draw->width)
 		{
