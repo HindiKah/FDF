@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 22:51:59 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/14 10:57:09 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/15 17:52:50 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		draw_byx(t_mlx *my_draw, t_coord *s, t_coord *e, int c)
 	{
 		if (s->x != e->x)
 			mlx_pixel_put(my_draw->mlx, my_draw->win,
-					x + WIN_X / 3, WIN_Y / 1.5 + (s->y + ((e->y - s->y) 
+					x + WIN_X / 2.5, WIN_Y / 2.5 + (s->y + ((e->y - s->y) 
 							* (x - s->x)) / (e->x - s->x)), c);
 		(s->x > e->x) ? x-- : x++;
 	}
@@ -36,8 +36,8 @@ void		draw_byy(t_mlx *my_draw, t_coord *s, t_coord *e, int c)
 	{
 		if (s->y != e->y)
 			mlx_pixel_put(my_draw->mlx, my_draw->win,
-					WIN_X / 3 + (s->x + ((e->x - s->x) * (x - s->y)) 
-						/ (e->y - s->y)), x + WIN_Y / 1.5, c);
+					WIN_X / 2.5 + (s->x + ((e->x - s->x) * (x - s->y)) 
+						/ (e->y - s->y)), x + WIN_Y / 2.5, c);
 		(s->y > e->y) ? x-- : x++;
 	}
 }

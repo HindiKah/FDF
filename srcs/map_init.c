@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/14 11:19:19 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/15 17:54:10 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_fdf		*fdf_init(int fd, t_fdf *my_fdf)
 	my_fdf->tab = ft_init_tab(my_fdf->tab, fd);
 	my_fdf->w = 19;
 	my_fdf->h = 11;
-	my_fdf->zoom = ZOOM;
 	return (my_fdf);
 }
 
@@ -85,9 +84,10 @@ t_fdx		*init_fdx(int fd,int x, int y)
 		my_fdx->cte1 = 0.9;
 		my_fdx->cte2 = 0.9;
 		my_fdx->cte3 = 6;
-		my_fdx->colour_l = RED1;
-		my_fdx->colour_h = RED2;
-		my_fdx->colour_p = RED3;
+		my_fdx->zoom = ZOOM;
+		my_fdx->colour_l = WHITE;
+		my_fdx->colour_h = WHITE;
+		my_fdx->colour_p = WHITE;
 		return (my_fdx);
 }
 
