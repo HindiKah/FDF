@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/15 17:09:16 by ybenoit          ###   ########.fr        #
+#    Updated: 2016/12/19 12:12:34 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC_BASE=main.c\
 		 printer.c\
 		 draw.c\
 		 colours.c\
-		 size_changer.c
+		 size_changer.c\
+		 checker.c
 
 OBJ_DIR=obj
 

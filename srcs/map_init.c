@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 18:02:16 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/19 12:58:04 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,16 @@ t_mlx		*map_init(t_mlx *my_map, int x, int y)
 	return (my_map);
 }
 
-t_fdf		*fdf_init(int fd, t_fdf *my_fdf)
+t_fdf		*fdf_init(char *file, t_fdf *my_fdf)
 {
+	int fd;
+
+	fd = open(file, O_RDONLY);
 	my_fdf = (t_fdf*)malloc(sizeof(t_fdf));
-	my_fdf->tab = ft_init_tab(my_fdf->tab, fd);
-	my_fdf->w = 19;
-	my_fdf->h = 11;
+	my_fdf->tab = ft_init_tab(my_fdf->tab, file, fd);
+	my_fdf->w = get_size_w(file);
+	my_fdf->h = get_size_h(file);
+	close(fd);
 	return (my_fdf);
 }
 
@@ -46,7 +50,7 @@ size_t		count_line(int fd)
 	return (ret);
 }
 
-int			**ft_init_tab(int **tab,int fd)
+int			**ft_init_tab(int **tab, char *file, int fd)
 {
 	char	*line;
 	char	**tmp_split;
@@ -58,7 +62,7 @@ int			**ft_init_tab(int **tab,int fd)
 	i = 0;
 	tab = (int**)malloc(sizeof(int*) * (y + 1));
 	close(fd);
-	fd = open("42.txt", O_RDONLY);
+	fd = open(file, O_RDONLY);
 	while ((get_next_line(fd, &line)) > 0)
 	{
 		j = 0;
@@ -74,12 +78,12 @@ int			**ft_init_tab(int **tab,int fd)
 	return (tab);
 }
 	
-t_fdx		*init_fdx(int fd,int x, int y)
+t_fdx		*init_fdx(char *file,int x, int y)
 {
 		t_fdx	*my_fdx;
 
 		my_fdx = (t_fdx*)malloc(sizeof(t_fdx));
-		my_fdx->my_fdf = fdf_init(fd, my_fdx->my_fdf);
+		my_fdx->my_fdf = fdf_init(file, my_fdx->my_fdf);
 		my_fdx->my_draw = map_init(my_fdx->my_draw, x, y);
 		my_fdx->cte1 = 0.9;
 		my_fdx->cte2 = 0.9;

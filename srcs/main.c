@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 22:42:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 19:39:06 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/19 15:16:54 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,17 @@ void	colour_rgb(int keycode, t_fdx *my_fdx)
 
 int		main(int argc, char **argv)
 {
-	int		fd;
 	t_fdx	*my_fdx;
 
-	fd = 0;
-	if (argc >= 1)
-		fd = open(argv[1], O_RDONLY);
-	my_fdx = init_fdx(fd, WIN_X, WIN_Y);
+	if (argc != 2)
+	{
+		ft_putstr("Only 1 arg needed");
+		return (0);
+	}
+	my_fdx = init_fdx(argv[1], WIN_X, WIN_Y);
 	fdf(my_fdx);
 	mlx_key_hook(my_fdx->my_draw->win, my_key_fun, my_fdx);
 	mlx_loop(my_fdx->my_draw->mlx);
-	close(fd);
 	free(my_fdx);
 	return (0);
 }

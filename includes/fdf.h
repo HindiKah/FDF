@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:48:32 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 19:07:04 by ybenoit          ###   ########.fr       */
+/*   Updated: 2016/12/19 13:33:43 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <mlx.h>
 # include <math.h>
 
-# define WIN_X 1200
-# define WIN_Y 720
-# define ZOOM 30
+# define WIN_X 1920
+# define WIN_Y 1080
+# define ZOOM 15
 # define RED1 0x00FF6347
 # define RED2 0x00FF4500
 # define RED3 0x00FF0000
@@ -77,10 +77,10 @@ typedef struct s_colour
 				int max;
 }				t_colour;
 
-t_fdx			*init_fdx(int fd, int x, int y);
+t_fdx			*init_fdx(char *file, int x, int y);
 t_mlx			*map_init(t_mlx *my_map, int x, int y);
-t_fdf			*fdf_init(int fd, t_fdf *my_fdf);
-int				**ft_init_tab(int **tab, int fd);
+t_fdf			*fdf_init(char *file, t_fdf *my_fdf);
+int				**ft_init_tab(int **tab, char *file, int fd);
 size_t			count_line(int fd);
 size_t			ft_sstrlen(char **sstr);
 void			draw_byx(t_mlx *my_draw, t_coord *s, t_coord *e, int c);
@@ -101,4 +101,8 @@ void			cte2(t_fdx *my_fdx, int keycode);
 void			cte3(t_fdx *my_fdx, int keycode);
 void			zoom(t_fdx *my_fdx, int keycode);
 void			move(t_fdx *my_fdx, int keycode);
+int				get_size_h(char *file);
+int				get_size_w(char *file);
+int				ft_strlen_n(char *str);
+int				test_number(char **str);
 #endif
