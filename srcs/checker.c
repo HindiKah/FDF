@@ -62,13 +62,34 @@ int		test_number(char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (str[i][j] <= '9' && str[i][j] >= '0' && 
-					(str[i][j + 1] == '\0' || 
-					 (str[i][j + 1] <= '9' && str[i][j + 1] >= '0')))
-				j++;
+			if (str[i][j] < '0' && str[i][j] > '9')
+				return (0);
+			j++;
 		}
 		i++;
 	}
 	return (1);
 }
 
+int		test_legual(char *file)
+{
+	char	**test_split;
+	char	*line;
+	int		fd;
+	int		y;
+	int		y_tmp;
+
+	y_tmp = -1;
+	fd = open(file, O_RDONLY);
+	while ((get_next_line(fd, &line)) > 0)
+	{
+		test_split = ft_strsplit(line, ' ');
+		y = ft_sstrlen(test_split);
+		if (y_tmp >= 0 && (y != y_tmp || test_number(test_split) == 0))
+			return (0);
+	}
+	free(line);
+	free(test_split);
+	close(fd);
+	return (1);
+}

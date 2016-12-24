@@ -77,7 +77,7 @@ int			**ft_init_tab(int **tab, char *file, int fd)
 	}
 	return (tab);
 }
-	
+
 t_fdx		*init_fdx(char *file,int x, int y)
 {
 		t_fdx	*my_fdx;
