@@ -32,24 +32,7 @@ void			clean_map(t_fdx *my_fdx)
 	erase_h(my_fdx);
 	erase_v(my_fdx);
 }
-/*void			clean_map(t_fdx *my_fdx)
-{
-	int i;
-	int j;
 
-	i = 0;
-	while (i <= my_fdx->my_draw->height)
-	{
-		j = 0;
-		while (j <= my_fdx->my_draw->width)
-		{
-			mlx_pixel_put(my_fdx->my_draw->mlx, my_fdx->my_draw->win, j, i, 0x00000000);
-			j++;
-		}
-		i++;
-	}
-}
-*/
 void			erase_h(t_fdx *my_fdx)
 {
 	int x;

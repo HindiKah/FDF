@@ -29,7 +29,8 @@ SRC_BASE=main.c\
 		 colours.c\
 		 size_changer.c\
 		 checker.c\
-		 check_existfile.c
+		 check_existfile.c\
+		 night_club.c
 
 OBJ_DIR=obj
 

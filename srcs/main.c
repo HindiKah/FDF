@@ -19,6 +19,7 @@ int		my_key_fun(int keycode, t_fdx *my_fdx)
 	if (keycode != 1234)
 	{
 		clean_map(my_fdx);
+		night_club(keycode, my_fdx);
 		cte1(my_fdx, keycode);
 		cte2(my_fdx, keycode);
 		cte3(my_fdx, keycode);

@@ -14,11 +14,11 @@
 
 void	cte1(t_fdx *my_fdx, int keycode)
 {
-	if (keycode == 124 && my_fdx->cte1 < 1)
+	if (keycode == 124 && my_fdx->cte1 <= 1)
 	{
 		my_fdx->cte1 += 0.1;
 	}
-	if (keycode == 123 && my_fdx->cte1 > 0)
+	if (keycode == 123 && my_fdx->cte1 >= 0.5)
 	{
 		my_fdx->cte1 -= 0.1;
 	}
@@ -26,11 +26,11 @@ void	cte1(t_fdx *my_fdx, int keycode)
 
 void	cte2(t_fdx *my_fdx, int keycode)
 {
-	if (keycode == 126 && my_fdx->cte2 < 1)
+	if (keycode == 126 && my_fdx->cte2 <= 1)
 	{
 		my_fdx->cte2 += 0.1;
 	}
-	if (keycode == 125 && my_fdx->cte2 > 0)
+	if (keycode == 125 && my_fdx->cte2 >= 0.5)
 	{
 		my_fdx->cte2 -= 0.1;
 	}
@@ -38,31 +38,31 @@ void	cte2(t_fdx *my_fdx, int keycode)
 
 void	zoom(t_fdx *my_fdx, int keycode)
 {
-	if (keycode == 69 && my_fdx->zoom < 60)
+	if (keycode == 47 && my_fdx->zoom < 60)
 	{
-		my_fdx->zoom += 5;
+		my_fdx->zoom += 2;
 	}
-	if (keycode == 125 && my_fdx->zoom > 5)
+	if (keycode == 44 && my_fdx->zoom > 5)
 	{
-		my_fdx->zoom -= 5;
+		my_fdx->zoom -= 2;
 	}
 }
 
 void	move(t_fdx *my_fdx, int keycode)
 {
-	if (keycode == 2 && my_fdx->m_x <= 100)
+	if (keycode == 2 && my_fdx->m_x <= 1000)
 	{
 		my_fdx->m_x += 10;
 	}
-	if (keycode == 1 && my_fdx->m_y <= 100)
+	if (keycode == 1 && my_fdx->m_y <= 1000)
 	{
 		my_fdx->m_y += 10;
 	}
-	if (keycode == 0 && my_fdx->m_x >= -100)
+	if (keycode == 0 && my_fdx->m_x >= -1000)
 	{
 		my_fdx->m_x -= 10;
 	}
-	if (keycode == 13 && my_fdx->m_y >= -100)
+	if (keycode == 13 && my_fdx->m_y >= -1000)
 	{
 		my_fdx->m_y -= 5;
 	}

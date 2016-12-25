@@ -20,16 +20,15 @@
 # define WIN_X 1920
 # define WIN_Y 1080
 # define ZOOM 15
-# define RED1 0x00FF6347
-# define RED2 0x00FF4500
+# define RED1 0x00FFFFFFFF
+# define RED2 0x00FF0000
 # define RED3 0x00FF0000
-# define BLUE1 0x0000BFFF
-# define BLUE2 0x001E90FF
+# define BLUE1 0x00FFFFFF
+# define BLUE2 0x000000FF
 # define BLUE3 0x000000FF
-# define GREEN1 0x0098FB98
-# define GREEN2 0x00ADFF2F
+# define GREEN1 0x00FFFFFF
+# define GREEN2 0x0000FF00
 # define GREEN3 0x0000FF00
-# define YELLOW 0x00FFFF00
 # define WHITE 0x00FFFFFF
 
 typedef struct	s_mlx
@@ -109,4 +108,5 @@ int				test_legual(char *file);
 int				file_exist(char *file);
 void			erase_h(t_fdx *my_fdx);
 void			erase_v(t_fdx *my_fdx);
+void			night_club(int keycode, t_fdx *my_fdx);
 #endif
