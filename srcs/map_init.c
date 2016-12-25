@@ -27,6 +27,8 @@ t_fdf		*fdf_init(char *file, t_fdf *my_fdf)
 	int fd;
 
 	fd = open(file, O_RDONLY);
+	if (fd <= 0)
+		return (NULL);
 	my_fdf = (t_fdf*)malloc(sizeof(t_fdf));
 	my_fdf->tab = ft_init_tab(my_fdf->tab, file, fd);
 	my_fdf->w = get_size_w(file);
@@ -82,8 +84,15 @@ t_fdx		*init_fdx(char *file,int x, int y)
 {
 		t_fdx	*my_fdx;
 
+		if (test_legual(file) == 0 || file == NULL)
+			return (NULL);
 		my_fdx = (t_fdx*)malloc(sizeof(t_fdx));
 		my_fdx->my_fdf = fdf_init(file, my_fdx->my_fdf);
+		if (my_fdx->my_fdf == NULL)
+		{
+			free(my_fdx);
+			return (NULL);
+		}
 		my_fdx->my_draw = map_init(my_fdx->my_draw, x, y);
 		my_fdx->cte1 = 0.9;
 		my_fdx->cte2 = 0.9;

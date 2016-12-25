@@ -105,4 +105,8 @@ int				get_size_h(char *file);
 int				get_size_w(char *file);
 int				ft_strlen_n(char *str);
 int				test_number(char **str);
+int				test_legual(char *file);
+int				file_exist(char *file);
+void			erase_h(t_fdx *my_fdx);
+void			erase_v(t_fdx *my_fdx);
 #endif

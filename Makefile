@@ -28,7 +28,8 @@ SRC_BASE=main.c\
 		 draw.c\
 		 colours.c\
 		 size_changer.c\
-		 checker.c
+		 checker.c\
+		 check_existfile.c
 
 OBJ_DIR=obj
 
