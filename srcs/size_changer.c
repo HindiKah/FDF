@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 16:58:58 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/15 19:42:14 by ybenoit          ###   ########.fr       */
+/*   Updated: 2017/01/02 15:09:02 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,8 @@ void	move(t_fdx *my_fdx, int keycode)
 
 void	cte3(t_fdx *my_fdx, int keycode)
 {
-	if (keycode == 14 && my_fdx->cte3 < 8)
-		my_fdx->cte3 += 1;
-	if (keycode == 12 && my_fdx->cte3 >= 1)
-		my_fdx->cte3 -= 1;
-	printf("cte3 = %d\n", my_fdx->cte3);
+	if (keycode == 14)
+		highter(my_fdx);
+	if (keycode == 12)
+		lower(my_fdx);
 }

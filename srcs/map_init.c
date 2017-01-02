@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 23:40:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/19 12:58:04 by ybenoit          ###   ########.fr       */
+/*   Updated: 2017/01/02 15:30:35 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,14 @@ t_fdx		*init_fdx(char *file,int x, int y)
 		my_fdx->my_draw = map_init(my_fdx->my_draw, x, y);
 		my_fdx->cte1 = 0.9;
 		my_fdx->cte2 = 0.9;
-		my_fdx->cte3 = 6;
+		my_fdx->cte3 = 9;
 		my_fdx->zoom = ZOOM;
 		my_fdx->colour_l = WHITE;
 		my_fdx->colour_h = WHITE;
 		my_fdx->colour_p = WHITE;
 		my_fdx->m_x = 0;
 		my_fdx->m_y = 0;
+		my_fdx->t_min = hight_min(my_fdx);
 		return (my_fdx);
 }
 

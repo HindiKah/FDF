@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:48:32 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/19 13:33:43 by ybenoit          ###   ########.fr       */
+/*   Updated: 2017/01/02 15:30:43 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct	s_fdx
 				int		colour_p;
 				int		m_x;
 				int		m_y;
+				int		t_min;
 }				t_fdx;
 
 typedef struct s_coord
@@ -109,4 +110,7 @@ int				file_exist(char *file);
 void			erase_h(t_fdx *my_fdx);
 void			erase_v(t_fdx *my_fdx);
 void			night_club(int keycode, t_fdx *my_fdx);
+void			highter(t_fdx *my_fdx);
+void			lower(t_fdx *my_fdx);
+int				hight_min(t_fdx *my_fdx);
 #endif

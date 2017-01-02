@@ -6,7 +6,7 @@
 #    By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/08 17:29:05 by ybenoit           #+#    #+#              #
-#    Updated: 2016/12/19 12:12:34 by ybenoit          ###   ########.fr        #
+#    Updated: 2017/01/02 14:19:36 by ybenoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC_BASE=main.c\
 		 size_changer.c\
 		 checker.c\
 		 check_existfile.c\
-		 night_club.c
+		 night_club.c\
+		 tall.c
 
 OBJ_DIR=obj
 

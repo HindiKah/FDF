@@ -6,7 +6,7 @@
 /*   By: ybenoit <ybenoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 12:02:45 by ybenoit           #+#    #+#             */
-/*   Updated: 2016/12/19 14:56:46 by ybenoit          ###   ########.fr       */
+/*   Updated: 2017/01/02 15:19:45 by ybenoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		test_number(char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (str[i][j] < '0' || str[i][j] > '9')
+			if ((str[i][j] < '0' || str[i][j] > '9') && str[i][j] != '-')
 			{
 				return (0);
 			}
