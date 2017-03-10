@@ -17,8 +17,8 @@
 # include <mlx.h>
 # include <math.h>
 
-# define WIN_X 1920
-# define WIN_Y 1080
+# define WIN_X 800
+# define WIN_Y 600
 # define ZOOM 15
 # define RED1 0x00FFFFFFFF
 # define RED2 0x00FF0000
@@ -37,6 +37,8 @@ typedef struct	s_mlx
 	int			width;
 	void		*mlx;
 	void		*win;
+	int			c_x;
+	int			c_y;
 }				t_mlx;
 
 typedef struct	s_fdf
@@ -113,4 +115,6 @@ void			night_club(int keycode, t_fdx *my_fdx);
 void			highter(t_fdx *my_fdx);
 void			lower(t_fdx *my_fdx);
 int				hight_min(t_fdx *my_fdx);
+int				init_cx(t_fdx *my_fdx);
+int				init_cy(t_fdx *my_fdx);
 #endif

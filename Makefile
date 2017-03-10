@@ -31,7 +31,8 @@ SRC_BASE=main.c\
 		 checker.c\
 		 check_existfile.c\
 		 night_club.c\
-		 tall.c
+		 tall.c\
+		 addifun.c
 
 OBJ_DIR=obj
 

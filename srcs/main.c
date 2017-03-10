@@ -28,7 +28,7 @@ int		my_key_fun(int keycode, t_fdx *my_fdx)
 		move(my_fdx, keycode);
 		fdf(my_fdx);
 	}
-	return (printf("keycode = %d \n", keycode));
+	return (printf("keycode = %d\n zoom = %d\n cte1 = %lf\n cte2 = %lf\n cte3 = %d\n X = %d\n Y = %d \nPivot = %d\n c_x = %d \nc_y = %d\n", keycode, my_fdx->zoom, my_fdx->cte1, my_fdx->cte2, my_fdx->cte3, my_fdx->m_x, my_fdx->m_y, my_fdx->t_min, my_fdx->my_draw->c_x, my_fdx->my_draw->c_y));
 }
 
 void	colour_rgb(int keycode, t_fdx *my_fdx)

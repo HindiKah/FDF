@@ -15,30 +15,39 @@
 void		draw_byx(t_mlx *my_draw, t_coord *s, t_coord *e, int c)
 {
 	int x;
+	int y;
 
 	x = s->x;
+	y = my_draw->c_x + (s->y + ((e->y - s->y) 
+							* (x - s->x)) / (e->x - s->x));
 	while (x != e->x)
 	{
-		if (s->x != e->x)
+		if (s->x != e->x && y > 0 && y < WIN_Y)
+
 			mlx_pixel_put(my_draw->mlx, my_draw->win,
-					x + WIN_X / 2.5, WIN_Y / 2.5 + (s->y + ((e->y - s->y) 
-							* (x - s->x)) / (e->x - s->x)), c);
+					x + my_draw->c_y, y, c);
 		(s->x > e->x) ? x-- : x++;
+		y = my_draw->c_x + (s->y + ((e->y - s->y) 
+							* (x - s->x)) / (e->x - s->x));
 	}
 }
 
 void		draw_byy(t_mlx *my_draw, t_coord *s, t_coord *e, int c)
 {
 	int x;
+	int y;
 
 	x = s->y;
+	y = my_draw->c_y + (s->x + ((e->x - s->x) * (x - s->y))
+						/ (e->y - s->y));
 	while (x != e->y)
 	{
-		if (s->y != e->y)
+		if (s->y != e->y && y > 0 && y < WIN_X)
 			mlx_pixel_put(my_draw->mlx, my_draw->win,
-					WIN_X / 2.5 + (s->x + ((e->x - s->x) * (x - s->y)) 
-						/ (e->y - s->y)), x + WIN_Y / 2.5, c);
+					y, x + my_draw->c_x, c);
 		(s->y > e->y) ? x-- : x++;
+		y = my_draw->c_y + (s->x + ((e->x - s->x) * (x - s->y))
+						/ (e->y - s->y));
 	}
 }
 

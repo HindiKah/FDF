@@ -103,7 +103,9 @@ t_fdx		*init_fdx(char *file,int x, int y)
 		my_fdx->colour_p = WHITE;
 		my_fdx->m_x = 0;
 		my_fdx->m_y = 0;
-		my_fdx->t_min = hight_min(my_fdx);
+		my_fdx->t_min =  0;//hight_min(my_fdx);
+		my_fdx->my_draw->c_x = init_cy(my_fdx);
+		my_fdx->my_draw->c_y = init_cx(my_fdx);
 		return (my_fdx);
 }
 

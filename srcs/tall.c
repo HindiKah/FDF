@@ -24,9 +24,9 @@ void		highter(t_fdx *my_fdx)
 		while (x < my_fdx->my_fdf->w)
 		{
 			if (my_fdx->my_fdf->tab[y][x] > my_fdx->t_min && my_fdx->my_fdf->tab[y][x] != my_fdx->t_min)
-				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] + 2;
+				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] * 2;
 			else if (my_fdx->my_fdf->tab[y][x] != my_fdx->t_min)
-				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] - 2;
+				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] / 2;
 			x++;
 		}
 		y++;
@@ -44,10 +44,10 @@ void		lower(t_fdx *my_fdx)
 		x = 0;
 		while (x < my_fdx->my_fdf->w)
 		{
-			if (my_fdx->my_fdf->tab[y][x] > my_fdx->t_min && my_fdx->my_fdf->tab[y][x] != my_fdx->t_min)
-				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] - 2;
-			else if (my_fdx->my_fdf->tab[y][x] != my_fdx->t_min)
-				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] + 2;
+			if (my_fdx->my_fdf->tab[y][x] > my_fdx->t_min && my_fdx->my_fdf->tab[y][x] != my_fdx->t_min && my_fdx->my_fdf->tab[y][x] / 2 > my_fdx->t_min)
+				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] / 2;
+			else if (my_fdx->my_fdf->tab[y][x] != my_fdx->t_min && my_fdx->my_fdf->tab[y][x] + 2 < my_fdx->t_min)
+				my_fdx->my_fdf->tab[y][x] = my_fdx->my_fdf->tab[y][x] * 2;
 			x++;
 		}
 		y++;
