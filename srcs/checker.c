@@ -82,6 +82,8 @@ int		test_legual(char *file)
 	int		y_tmp;
 
 	y_tmp = -1;
+	if (!file_exist(file))
+		return (0);
 	fd = open(file, O_RDONLY);
 	while ((get_next_line(fd, &line)) > 0)
 	{

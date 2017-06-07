@@ -62,6 +62,8 @@ int			**ft_init_tab(int **tab, char *file, int fd)
 
 	y = count_line(fd);
 	i = 0;
+	if (y <= 0)
+		return (NULL);
 	tab = (int**)malloc(sizeof(int*) * (y + 1));
 	close(fd);
 	fd = open(file, O_RDONLY);
